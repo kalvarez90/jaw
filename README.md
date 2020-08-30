@@ -1,4 +1,4 @@
-# jaw  
+# JAW  
 Group Assignment for Web-330  
 
 # Contributors  
