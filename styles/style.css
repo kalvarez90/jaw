@@ -1,0 +1,39 @@
+/* color scheme here: https://colorhunt.co/palette/192310 */
+
+body {
+    background-color: #84a9ac;
+}
+
+#wrapper {
+    background-color: #e7dfd5;
+    border: 2px solid #204051;
+    border-radius: 30px;
+    margin: 100px auto;
+    max-width: 80%;
+    padding: 50px;
+    text-align: center;
+}
+
+#submit {
+    margin: 0 auto;
+}
+
+h1, h4 {
+    text-align: center;
+}
+
+button {
+    display: inline-block;
+    text-align: center;
+}
+
+.btn {
+    background-color: #3b6978;
+    border-color: #3b6978;
+
+}
+
+.btn-primary:hover {
+    background-color: #84a9ac;
+    border-color: #84a9ac;
+}
