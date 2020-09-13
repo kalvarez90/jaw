@@ -56,15 +56,38 @@ button {
   border-radius:10px;
   margin:10px;
 }
-.yellow {
-  background-color: #e7dfd5;
-}
-.col-sm img {
- margin: 20px 0;
-}
 
 .lead, #bio {
   text-align: justify;
+}
+
+.container{
+text-align: center;
+}
+
+.next{
+  text-decoration: none;
+  float: right;
+  color: #000
+}
+
+.next:hover{
+  color: #3b6978;
+}
+
+.previous{
+  text-decoration: none;
+  float: left;
+  color: #000
+}
+
+.previous:hover{
+  color: #3b6978;
+}
+
+form {
+  display: inline-block;
+  text-align: left;
 }
 
 
