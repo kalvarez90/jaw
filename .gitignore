@@ -1,0 +1,21 @@
+# ======================================
+# Title: .gitignore
+# Author: Professor Krasso
+# Date: 4 September 2020
+# Modified By: Karina Alvarez, Devan Wong, Douglas Jenkins
+# Description: Adding .gitignore
+# (global configuration file for git)
+# ======================================
+
+# IDE
+.vscode
+.idea
+
+# Node ddependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
