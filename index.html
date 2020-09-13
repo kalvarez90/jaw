@@ -36,24 +36,24 @@
         <script src="./knockout-3.5.1.js"></script>
     </head>
     <body>
-        <!-- Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">Jaw's JS Quiz</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./views/bio.html">Bio</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-md bg-light navbar-light">
+        <a class="navbar-brand" href="#">Jaw's JS Quiz</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./views/bio.html">Bio</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
         <div id="wrapper">
             <h1>Javascript Quiz</h1>
@@ -62,13 +62,15 @@
             <button type="button" class="btn btn-primary btn-lg" id="submit">Submit</button>
             <div id="results"></div>
         </div>
+
+        <br />
+        <br />
+        <br />
         <!-- Start of Footer-->
-        <footer>
-            <div class="container-fluid jumbotron text-center" id="copyright">
-                <p>© 2020 Copyright</p>
-                <p> Karina Alvarez, Devan Wong, Douglas Jenkins</p>
-            </div>
-        </footer>
+        <div class="container-fluid" id="copyright">
+          <p>© 2020 Copyright <br>
+            Karina Alvarez, Devan Wong, Douglas Jenkins</p>
+        </div>
         <!-- End of footer -->
 
     </body>

@@ -44,8 +44,12 @@ button {
 }
 
 #copyright {
-    margin-bottom:0;
+  padding: 10px;
+  background-color: lightgray;
+  text-align: center;
+  margin: 0;
 }
+
 /* bio page */
 .col-sm {
   background-color: #e7dfd5;
@@ -58,4 +62,10 @@ button {
 .col-sm img {
  margin: 20px 0;
 }
+
+.lead, #bio {
+  text-align: justify;
+}
+
+
 
