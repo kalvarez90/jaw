@@ -2,6 +2,7 @@
 
 body {
     background-color: #84a9ac;
+    font-family: "Roboto", Verdana, Arial, Tahoma, sans-serif;
 }
 
 #wrapper {
@@ -16,6 +17,10 @@ body {
 
 #submit {
     margin: 0 auto;
+}
+
+h1 {
+    font-weight: 500;
 }
 
 h1, h4 {
@@ -36,4 +41,21 @@ button {
 .btn-primary:hover {
     background-color: #84a9ac;
     border-color: #84a9ac;
+}
+
+#copyright {
+    margin-bottom:0;
+}
+
+/* bio page */
+.col-sm {
+  background-color: #e7dfd5;
+  border-radius:10px;
+  margin:10px;
+}
+.yellow {
+  background-color: #e7dfd5;
+}
+.col-sm img {
+ margin: 20px 0;
 }

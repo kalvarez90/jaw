@@ -1,0 +1,97 @@
+<!--
+============================================
+; Title:  index.html
+; Authors: Karina Alvarez, Devan Wong, Douglas Jenkins
+; Date:   22 August 2020
+; Description: Group Assignment
+;===========================================
+-->
+
+<!-- Start of program-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- DOCUMENTATION: https://www.sitepoint.com/simple-javascript-quiz/ -->
+        <title>JavaScript Trivia</title>
+
+        <!--Meta tags-->
+        <meta charset='UTF-8' />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="JavaScript Trivia Game" />
+
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous">
+
+        <!-- CSS External File -->
+        <link rel="stylesheet" href="../styles/style.css">
+
+        <!-- JavaScript External File -->
+        <script type="text/javascript" src="./scripts/quiz.js" ></script>
+        <script src="./knockout-3.5.1.js"></script>
+    </head>
+    <body>
+        <!-- Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">Jaw's JS Quiz</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="bio.html">Bio <span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- BIO -->
+        <div class="container">
+          <br><br>
+          <div class="jumbotron yellow">
+            <h1>Who is team JAW?</h1>
+            <p class="lead">JAW is a group made up of Karina Alvarez, Devan Wong and Douglas Jenkins who are Web Development majors at Bellevue University. The goal of our group is to come together and create a single page web application using Knockout.js that will generate 10 questions for JavaScript trivia. When a user visits our web application they will be able to take the 10 question page, all of which will be in multiple choice or true/false. After you have finished the quiz, the user will get results and will provide them a score and a ranking. Rankings have three different categories: expert (8-10 answers correct), novice (6-8 answer correct) and beginner (less than 6 correct). The quiz will have move forward and go back features that will allow the user to go back to check their answers or skip ahead to the next questions. It will be required for all quiz questions to be answered prior to submission.</p>
+          </div>
+          <div class="row">
+            <!-- KARINA -->
+            <div class="col-sm">
+              <a href="https://github.com/devanwong"><img class="img-thumbnail rounded" src="../images/dev_avatar.jpg"></a><br><br>
+              <h4>Hi! I'm Karina</h4>
+              <p></p>
+            </div>
+            <!-- DEVAN -->
+            <div class="col-sm">
+              <a href="https://github.com/devanwong"><img class="img-thumbnail rounded" src="../images/dev_avatar.jpg"></a><br><br>
+              <h4>Hi! I'm Devan, </h4>
+              <p>I am currently a email developer, aspiring to become a web developer. During the pandemic, and outside school and work, I am tending to my plants, and looking/planning for my next adventure.</p>
+            </div>
+            <!-- DOUGLAS -->
+            <div class="col-sm">
+              <a href="https://github.com/devanwong"><img class="img-thumbnail rounded" src="../images/dev_avatar.jpg"></a><br><br>
+              <h4>Hi! I'm Douglas</h4>
+              <p></p>
+            </div>
+          </div>
+          <br>
+        </div>
+        <!-- Start of Footer-->
+        <footer>
+            <div class="container-fluid jumbotron text-center" id="copyright">
+                <p>© 2020 Copyright</p>
+                <p> Karina Alvarez, Devan Wong, Douglas Jenkins</p>
+            </div>
+        </footer>
+        <!-- End of footer -->
+
+    </body>
+</html>
+<!-- End of program-->
