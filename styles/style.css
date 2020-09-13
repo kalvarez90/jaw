@@ -46,16 +46,35 @@ button {
 #copyright {
     margin-bottom:0;
 }
-/* bio page */
-.col-sm {
-  background-color: #e7dfd5;
-  border-radius:10px;
-  margin:10px;
+
+.next{
+  text-decoration: none;
+  float: right;
+  color: #000
 }
-.yellow {
-  background-color: #e7dfd5;
+
+.next:hover{
+  color: #3b6978;
 }
-.col-sm img {
- margin: 20px 0;
+
+.previous{
+  text-decoration: none;
+  float: left;
+  color: #000
 }
+
+.previous:hover{
+  color: #3b6978;
+}
+
+.container{
+text-align: center;
+}
+
+form{
+  display: inline-block;
+  text-align: left;
+}
+
+
 

@@ -95,7 +95,7 @@ var myQuestions = [
                        b: "function: myFunction()",
                        c: "function myFunction()"
                       },
-                      correctAnswer: "c"
+                      correctAnswer: "b"
                     },
                     {
                       question: `What will be the output of this code?
