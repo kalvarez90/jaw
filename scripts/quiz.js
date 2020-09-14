@@ -2,7 +2,7 @@
 // const resultsContainer = document.getElementById('results');
 // const submitButton = document.getElementById('submit');
 
-
+/*
 function buildQuiz(){ }
 
 
@@ -68,7 +68,8 @@ var myQuestions = [
               answers : {
                  a: "<!—This comment has more than one line -->",
                  b: "// This comment has more than one line //",
-                 c: "/* This comment has more than one line */"
+                 c: "/* This comment has more than one line */
+                 /*"
                 },
                 correctAnswer: "c"
               },
@@ -114,4 +115,4 @@ var myQuestions = [
                       },
                       correctAnswer: "a"
                     }
-        ]
+        ] */

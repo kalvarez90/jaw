@@ -65,6 +65,7 @@ button {
 text-align: center;
 }
 
+/* next and previous questions buttons */
 .next{
   text-decoration: none;
   float: right;
