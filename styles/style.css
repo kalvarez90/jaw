@@ -15,32 +15,41 @@ body {
     text-align: center;
 }
 
+h1 {
+  font-weight: 500;
+}
+
 h1, h4 {
   text-align: center;
 }
+
 .question{
   font-size: 30px;
   margin-bottom: 10px;
 }
+
 .answers {
   margin-bottom: 20px;
   text-align: left;
   display: inline-block;
 }
+
 .answers label{
   display: block;
   margin-bottom: 10px;
 }
+
 button{
 	font-size: 22px;
 	background-color: #279;
 	color: #fff;
 	border: 0px;
-	border-radius: 3px;
-	padding: 20px;
+	border-radius: 15px;
+	padding: 15px;
 	cursor: pointer;
 	margin-bottom: 20px;
 }
+
 button:hover{
 	background-color: #38a;
 }
@@ -64,6 +73,28 @@ button:hover{
   margin-top: 40px;
 }
 
+/* FOOTER */
+#copyright {
+  padding: 10px;
+  background-color: lightgray;
+  text-align: center;
+  margin: 0;
+}
+
+/* BIO PAGE */
+.col-sm {
+  background-color: #e7dfd5;
+  border-radius:10px;
+  margin:10px;
+}
+
+.lead, #bio {
+  text-align: justify;
+}
+
+.container{
+text-align: center;
+}
 
 
 
