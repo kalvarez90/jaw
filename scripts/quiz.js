@@ -71,16 +71,16 @@
 
     // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-    if (numCorrect <= 3){
-      return document.getElementById('status').innerHTML="You are a beginner";
+    if (numCorrect <= 5){
+      return document.getElementById('status').innerHTML="Beginner";
     }
 
-    else if (numCorrect <=  7){
-      return document.getElementById('status').innerHTML="You are a Novice";
+    else if (numCorrect <=  8){
+      return document.getElementById('status').innerHTML="Novice";
     }
 
     else if (numCorrect <=  10){
-      return document.getElementById('status').innerHTML="You are a JavaScript Expert";
+      return document.getElementById('status').innerHTML="JavaScript Expert";
     }
 
   };
@@ -235,3 +235,8 @@
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
 })();
+
+// refresh Quiz page
+function refreshPage(){
+  window.location.reload();
+} ;
