@@ -60,7 +60,7 @@
         numCorrect++;
 
         // color the answers green
-        answerContainers[questionNumber].style.color = 'lightgreen';
+        answerContainers[questionNumber].style.color = 'green';
       }
       // if answer is wrong or blank
       else{
@@ -71,7 +71,19 @@
 
     // show number of correct answers out of total
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-  }
+    if (numCorrect <= 3){
+      return document.getElementById('status').innerHTML="You are a beginner";
+    }
+
+    else if (numCorrect <=  7){
+      return document.getElementById('status').innerHTML="You are a Novice";
+    }
+
+    else if (numCorrect <=  10){
+      return document.getElementById('status').innerHTML="You are a JavaScript Expert";
+    }
+
+  };
 
   function showSlide(n) {
     slides[currentSlide].classList.remove('active-slide');

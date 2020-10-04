@@ -5,7 +5,7 @@ body {
     font-family: "Roboto", Verdana, Arial, Tahoma, sans-serif;
 }
 
-#wrapper {
+#wrapper{
     background-color: #e7dfd5;
     border: 2px solid #204051;
     border-radius: 30px;
@@ -15,11 +15,9 @@ body {
     text-align: center;
 }
 
-h1 {
-  font-weight: 500;
-}
 
-h1, h4 {
+h1 {
+
   text-align: center;
 }
 
@@ -27,7 +25,7 @@ h1, h4 {
   font-size: 30px;
   margin-bottom: 10px;
 }
-
+z
 .answers {
   margin-bottom: 20px;
   text-align: left;
@@ -39,7 +37,7 @@ h1, h4 {
   margin-bottom: 10px;
 }
 
-button{
+button, .button{
 	font-size: 22px;
 	background-color: #279;
 	color: #fff;
@@ -50,7 +48,7 @@ button{
 	margin-bottom: 20px;
 }
 
-button:hover{
+button:hover, .button:hover{
 	background-color: #38a;
 }
 
@@ -83,18 +81,23 @@ button:hover{
 
 /* BIO PAGE */
 .col-sm {
-  background-color: #e7dfd5;
+  background-color:  #e7dfd5;
   border-radius:10px;
   margin:10px;
+}
+
+.img-thumbnail {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
 }
 
 .lead, #bio {
   text-align: justify;
 }
 
-.container{
-text-align: center;
-}
+
 
 
 

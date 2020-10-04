@@ -33,13 +33,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <!-- CSS External File -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
 
     <!-- Knockout -->
-    <script src="./knockout-3.5.1.js"></script>
-
-    <!-- JavaScript External Files -->
-    <script src="./scripts/viewModel.js"></script>
+    <script src="../knockout-3.5.1.js"></script>
 
   </head>
 
@@ -54,41 +51,46 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="./index.html">Home</a>
+            <a class="nav-link" href="../index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./views/bio.html">Bio</a>
+            <a class="nav-link" href="../views/bio.html">Bio</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <div id="wrapper">
-      <h1>Javascript Quiz</h1>
-      <div class="quiz-container">
-        <div id="quiz"></div>
+      <div id="wrapper">
+        <h1>Results</h1>
+        <br>
+        <br>
+        <h3>Score</h3>
+        <div id="results"></div>
+
+        <br>
+        <br>
+        <br>
+
+      <h3>Knowledge Rank</h3>
+      <div id="status"></div>
+
+    <!-- JavaScript External Files -->
+    <script src="../scripts/quiz.js"></script>
+
       </div>
+
+
       <br>
       <br>
-      <br>
-      <button id="previous">Previous Question</button>
-      <button id="next">Next Question</button>
-      <a class="button" href="./views/submitPage.html" id="submit">Submit Quiz</a>
 
 
-      <!-- JavaScript External File -->
-
-      <script src="./scripts/quiz.js"></script>
-    </div>
-
-    <br />
-    <br />
-    <br />
     <!-- Start of Footer-->
-    <div class="container-fluid" id="copyright">
-      <p>© 2020 Copyright <br>
-        Karina Alvarez, Devan Wong, Douglas Jenkins</p>
-    </div>
+    <footer>
+      <div class="container-fluid jumbotron text-center" id="copyright">
+        <p>© 2020 Copyright</p>
+        <p> Karina Alvarez, Devan Wong, Douglas Jenkins</p>
+      </div>
+    </footer>
     <!-- End of footer -->
 
   </body>
