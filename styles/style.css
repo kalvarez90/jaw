@@ -52,6 +52,11 @@ button:hover, .button:hover{
 	background-color: #38a;
 }
 
+a.button {
+  text-decoration: none;
+  color: white;
+}
+
 .slide{
   position: absolute;
   left: 0px;
