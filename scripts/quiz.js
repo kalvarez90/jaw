@@ -203,6 +203,7 @@
           console.log("wrong answer");
         }
 
+
       console.log("selectedValue: " + self.selectedValue);
       console.log("right answer: " + self.questions()[current-1].correctAnswer);
       // console.log(current-1);
@@ -223,4 +224,5 @@
     };
   }
   ko.applyBindings(new QuizViewModel());
+
 
