@@ -1,122 +1,3 @@
-// (function(){
-//   // Functions
-//   function buildQuiz(){
-//     // variable to store the HTML output
-//     const output = [];
-
-//     // for each question...
-//     myQuestions.forEach(
-//       (currentQuestion, questionNumber) => {
-
-//         // variable to store the list of possible answers
-//         const answers = [];
-
-//         // and for each available answer...
-//         for(letter in currentQuestion.answers){
-
-//           // ...add an HTML radio button
-//           answers.push(
-//             `<label>
-//               <input type="radio" name="question${questionNumber}" value="${letter}">
-//               ${letter} :
-//               ${currentQuestion.answers[letter]}
-//             </label>`
-//           );
-//         }
-
-//         // add this question and its answers to the output
-//         output.push(
-//           `<div class="slide">
-//             <div class="question"> ${currentQuestion.question} </div>
-//             <div class="answers"> ${answers.join("")} </div>
-//           </div>`
-//         );
-//       }
-//     );
-
-//     // finally combine our output list into one string of HTML and put it on the page
-//     quizContainer.innerHTML = output.join('');
-//   }
-
-  // function showResults(){
-
-  //   // gather answer containers from our quiz
-  //   const answerContainers = quizContainer.querySelectorAll('.answers');
-
-  //   // keep track of user's answers
-  //   let numCorrect = 0;
-
-  //   // for each question...
-  //   myQuestions.forEach( (currentQuestion, questionNumber) => {
-
-  //     // find selected answer
-  //     const answerContainer = answerContainers[questionNumber];
-  //     const selector = `input[name=question${questionNumber}]:checked`;
-  //     const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-  //     // if answer is correct
-  //     if(userAnswer === currentQuestion.correctAnswer){
-  //       // add to the number of correct answers
-  //       numCorrect++;
-
-  //       // color the answers green
-  //       answerContainers[questionNumber].style.color = 'green';
-  //     }
-  //     // if answer is wrong or blank
-  //     else{
-  //       // color the answers red
-  //       answerContainers[questionNumber].style.color = 'red';
-  //     }
-  //   });
-
-  //   // show number of correct answers out of total
-  //   resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-  //   if (numCorrect <= 5){
-  //     return document.getElementById('status').innerHTML="Beginner";
-  //   }
-
-  //   else if (numCorrect <=  8){
-  //     return document.getElementById('status').innerHTML="Novice";
-  //   }
-
-  //   else if (numCorrect <=  10){
-  //     return document.getElementById('status').innerHTML="JavaScript Expert";
-  //   }
-
-  // };
-
-  // function showSlide(n) {
-  //   slides[currentSlide].classList.remove('active-slide');
-  //   slides[n].classList.add('active-slide');
-  //   currentSlide = n;
-  //   if(currentSlide === 0){
-  //     previousButton.style.display = 'none';
-  //   }
-  //   else{
-  //     previousButton.style.display = 'inline-block';
-  //   }
-  //   if(currentSlide === slides.length-1){
-  //     nextButton.style.display = 'none';
-  //     submitButton.style.display = 'inline-block';
-  //   }
-  //   else{
-  //     nextButton.style.display = 'inline-block';
-  //     submitButton.style.display = 'none';
-  //   }
-  // }
-
-  // function showNextSlide() {
-  //   showSlide(currentSlide + 1);
-  // }
-
-  // function showPreviousSlide() {
-  //   showSlide(currentSlide - 1);
-  // }
-
-  // Variables
-  // const quizContainer = document.getElementById('quiz');
-  // const resultsContainer = document.getElementById('results');
-  // const submitButton = document.getElementById('submit');
   const myQuestions = [
     {
       id: 1,
@@ -260,44 +141,20 @@
     }
     ];
 
-    // Builds the Quiz
-    // buildQuiz();
-
-    // Pagination
-    // const previousButton = document.getElementById("previous");
-    // const nextButton = document.getElementById("next");
-    // const slides = document.querySelectorAll(".slide");
-    // let currentSlide = 0;
-
-    // Show the first slide
-    // showSlide(currentSlide);
-
-    // Event listeners
-  //   submitButton.addEventListener('click', showResults);
-  //   previousButton.addEventListener("click", showPreviousSlide);
-  //   nextButton.addEventListener("click", showNextSlide);
-  // })();
-
-  // refresh Quiz page
   // Post data binds
   function QuizViewModel(){
     var self = this;
+    self.count = ko.observable(0);
     self.header = ko.observable('Javascript Quiz');
     self.score  = ko.observable('Score');
     self.rank  = ko.observable('Knowledge Rank');
     self.result  = ko.observable('Results');
     self.currentSlide = ko.observable(0);
-    self.userAnswer = ko.observable();
+    // self.selectedValue = ko.observable();
     self.questions = ko.observableArray(myQuestions);
     $("#previous").hide();
     $("#submit").hide();
 
-    // self.next = function(){
-    //   var current = self.currentSlide();
-    //   if current >= self.questions().length - 1 {
-    //     self.showResults
-    //   }
-    // }
     self.add = function refreshPage(){
       window.location.reload();
     } ;
@@ -316,12 +173,13 @@
         current--;
         self.currentSlide(current);
       }
-      console.log(current);
-    };
+      //counter for going back
+    }
     //NEXT BUTTON
     self.nextButton = function(){
       $("#previous").show();
       let current = self.currentSlide();
+      let count = self.count();
       if (current >= 0) {
         current ++;
         self.currentSlide(current);
@@ -331,19 +189,38 @@
         $("#next").hide();
         $("#submit").show();
       }
-      console.log(current);
+      // if (self.selectedValue === undefined) {
+      //   alert("please answer question");
+      //   self.currentSlide(current);
+      // }
+
+      //counter for right answers
+      let numCorrect = self.count()+ 1;
+        if (self.selectedValue === self.questions()[current-1].correctAnswer) {
+          self.count(numCorrect)
+          console.log("right answer " + numCorrect);
+        } else {
+          console.log("wrong answer");
+        }
+
+      console.log("selectedValue: " + self.selectedValue);
+      console.log("right answer: " + self.questions()[current-1].correctAnswer);
+      // console.log(current-1);
+      //console.log(myQuestions.length)
     };
     //USERS SELECTED.
     self.userSelected = function() {
-      self.userAnswer(value);
+      //console.log();
     };
     //USERS STORE
     self.storeAnswer = function() {
-      var current = self.currentSlide();
-      myQuestions[current].answerSelected = true;
-      self.questions(myQuestions);
-      self.answerSelected.push(self.userAnswer());
-    }
+      // var current = self.currentSlide();
+      // self.questions(myQuestions);
+    };
+    //SHOW RESULTS
+    self.showResults = function(){
+      console.log('Submitted!');
+    };
   }
   ko.applyBindings(new QuizViewModel());
 

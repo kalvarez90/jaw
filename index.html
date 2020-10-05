@@ -67,6 +67,7 @@
 
         <div id="wrapper">
           <h1 data-bind="text: header"></h1>
+          <h3>Question <span data-bind="html: currentQuestion().id"></span>/10</h3>
           <div class="quiz-container">
             <div id="quiz">
               <!-- display questions -->
@@ -74,22 +75,63 @@
               <br/>
                 <div data-bind="foreach: currentQuestion().answers">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="answertxt" id="answertxt" value="a">
-                    <label class="form-check-label" data-bind="text: a" for="answertxt"></label>
+                    <!-- id and for should match. -->
+                    <input
+                      class="form-check-input"
+                      id="optionA"
+                      type="radio"
+                      name="answertxt"
+                      value="a"
+                      data-bind="checkedValue: $data.a, checked: $root.selectedValue">
+                    <label
+                      class="form-check-label"
+                      data-bind="text: a"
+                      for="optionA">
+                    </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="answertxt" id="answertxt" value="b">
-                    <label class="form-check-label" data-bind="text: b" for="answertxt"></label>
+                    <input
+                      class="form-check-input"
+                      id="optionB"
+                      type="radio"
+                      name="answertxt"
+                      value="b"
+                      data-bind="checkedValue: $data.b, checked: $root.selectedValue">
+                    <label
+                      class="form-check-label"
+                      data-bind="text: b"
+                      for="optionB">
+                    </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="answertxt" id="answertxt" value="c">
-                    <label class="form-check-label" data-bind="text: c" for="answertxt"></label>
+                    <input
+                      class="form-check-input"
+                      id="optionC"
+                      type="radio"
+                      name="answertxt"
+                      value="c"
+                      data-bind="checkedValue: $data.c, checked: $root.selectedValue">
+                    <label
+                      class="form-check-label"
+                      data-bind="text: c"
+                      for="optionC">
+                    </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="answertxt" id="answertxt" value="d">
-                    <label class="form-check-label" data-bind="text: d" for="answertxt"></label>
+                    <input
+                      class="form-check-input"
+                      id="optionD"
+                      type="radio"
+                      name="answertxt"
+                      value="d"
+                      data-bind="checkedValue: $data.d, checked: $root.selectedValue">
+                    <label
+                      class="form-check-label"
+                      data-bind="text: d"
+                      for="optionD">
+                    </label>
                   </div>
-                </div>
+              </div>
             </div>
           </div>
           <br>
@@ -117,20 +159,18 @@
                 <div class="modal-body">
                   <h4 data-bind="text: score"></h4>
                   <br>
-                  <div id="results"></div>
+                  <div id="results" data-bind="showResults"></div>
                   <br>
 
                   <h4 data-bind="text: rank"></h4>
                   <br>
-                  <div id="status"></div>
+                  <div id="status" data-bind="showResults"></div>
                   <br>
                   <button type="submit" data-bind="click: add"  onClick="refreshPage()">Start Over</button>
                 </div>
               </div>
               </div>
               </div>
-
-
 
           <!-- JavaScript External File -->
           <script src="./scripts/quiz.js"></script>
