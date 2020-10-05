@@ -1,0 +1,115 @@
+<!--
+============================================
+; Title:  index.html
+; Authors: Karina Alvarez, Devan Wong, Douglas Jenkins
+; Date:   22 August 2020
+; Description: Group Assignment
+;===========================================
+-->
+
+<!-- Start of program-->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- DOCUMENTATION: https://www.sitepoint.com/simple-javascript-quiz/ -->
+    <title>JavaScript Trivia</title>
+
+    <!--Meta tags-->
+    <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="JavaScript Trivia Game" />
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <!-- CSS External File -->
+    <link rel="stylesheet" href="../styles/style.css">
+
+    <!-- JavaScript External File -->
+    <script type="text/javascript" src="./scripts/quiz.js"></script>
+    <script src="./knockout-3.5.1.js"></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-light navbar-light">
+      <a class="navbar-brand" href="#">Jaw's JS Quiz</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./views/bio.html">Bio</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- BIO -->
+    <div class="container">
+      <br><br>
+      <div class="jumbotron yellow">
+        <h1>Who is team JAW?</h1>
+        <p class="lead">JAW is a group made up of Karina Alvarez, Devan Wong and Douglas Jenkins who are Web Development
+          majors at Bellevue University. The goal of our group is to come together and create a single page web application
+          using Knockout.js that will generate 10 questions for JavaScript trivia. When a user visits our web application they
+          will be able to take the 10 question page, all of which will be in multiple choice or true/false. After you have
+          finished the quiz, the user will get results and will provide them a score and a ranking. Rankings have three different
+          categories: expert (8-10 answers correct), novice (6-8 answer correct) and beginner (less than 6 correct). The quiz will
+          have move forward and go back features that will allow the user to go back to check their answers or skip ahead to the
+          next questions. It will be required for all quiz questions to be answered prior to submission.</p>
+      </div>
+      <div class="row">
+        <!-- KARINA -->
+        <div class="col-sm">
+          <a href="https://github.com/kalvarez90" target="_blank"><img class="img-thumbnail rounded" src="../images/karina.jpg"></a><br><br>
+          <h4>Hi! I'm Karina,</h4>
+          <p id="bio">I'm a stay-at-home mom of 4 children under the age of 12 who I homeschool year-round. I love fostering pets for
+            my local humane society and I'm looking forward in graduating from Bellevue University in 2021 with a Bachelor's of Science
+            in Web Development.</p>
+        </div>
+        <!-- DEVAN -->
+        <div class="col-sm">
+          <a href="https://github.com/devanwong" target="_blank"><img class="img-thumbnail rounded" src="../images/devan.jpg"></a><br><br>
+          <h4>Hi! I'm Devan, </h4>
+          <p id="bio">I am currently a email developer, aspiring to become a web developer. During the pandemic, and outside school and work,
+            I am tending to my plants, and looking/planning for my next adventure.</p>
+        </div>
+        <!-- DOUGLAS -->
+        <div class="col-sm">
+          <a href="https://github.com/dljenkinsjr" target="_blank"><img class="img-thumbnail rounded" src="../images/douglas.jpeg"></a><br><br>
+          <h4>Hi! I'm Douglas,</h4>
+          <p id="bio">I am currently an aircraft tech who was able to get a Certification of Completion from College of the Canyons where I learned
+            fundamental skills in web development as well as some graphic and web design skills.
+            I am currently enrolled at Bellevue University with plans to graduate in 2021 with my bachelors of
+            science in Web Development so that I move on to a different position at my current job.</p>
+        </div>
+      </div>
+      <br>
+    </div>
+    <!-- Start of Footer-->
+    <footer>
+      <div class="container-fluid jumbotron text-center" id="copyright">
+        <p>© 2020 Copyright</p>
+        <p> Karina Alvarez, Devan Wong, Douglas Jenkins</p>
+      </div>
+    </footer>
+    <!-- End of footer -->
+
+  </body>
+
+</html>
+<!-- End of program-->
