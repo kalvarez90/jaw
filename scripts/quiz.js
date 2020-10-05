@@ -218,7 +218,7 @@
                       }
   ];
 
-  // Kick things off
+  // Builds the Quiz
   buildQuiz();
 
   // Pagination
@@ -237,6 +237,15 @@
 })();
 
 // refresh Quiz page
-function refreshPage(){
-  window.location.reload();
-} ;
+// Post data binds
+function QuizViewModel(){
+  this.header = ko.observableArray(["Javascript Quiz"]);
+  this.score  = ko.observableArray(["Score"]);
+  this.rank  = ko.observableArray(["Knowledge Rank"]);
+  this.result  = ko.observableArray(["Results"]);
+  this.add = function refreshPage(){
+    window.location.reload();
+  } ;
+}
+ko.applyBindings(new QuizViewModel());
+
