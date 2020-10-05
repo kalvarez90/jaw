@@ -67,14 +67,81 @@
 
         <div id="wrapper">
           <h1 data-bind="text: header"></h1>
+
+          <h3>Question <span data-bind="html: currentQuestion().id"></span>/10</h3>
+
           <div class="quiz-container">
-            <div id="quiz"></div>
+            <div id="quiz">
+              <!-- display questions -->
+              <h2 data-bind="html: currentQuestion().question"></h2>
+              <br/>
+                <div data-bind="foreach: currentQuestion().answers">
+                  <div class="form-check">
+                    <!-- id and for should match. -->
+                    <input
+                      class="form-check-input"
+                      id="optionA"
+                      type="radio"
+                      name="answertxt"
+                      value="a"
+                      data-bind="checkedValue: $data.a, checked: $root.selectedValue">
+                    <label
+                      class="form-check-label"
+                      data-bind="text: a"
+                      for="optionA">
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      id="optionB"
+                      type="radio"
+                      name="answertxt"
+                      value="b"
+                      data-bind="checkedValue: $data.b, checked: $root.selectedValue">
+                    <label
+                      class="form-check-label"
+                      data-bind="text: b"
+                      for="optionB">
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      id="optionC"
+                      type="radio"
+                      name="answertxt"
+                      value="c"
+                      data-bind="checkedValue: $data.c, checked: $root.selectedValue">
+                    <label
+                      class="form-check-label"
+                      data-bind="text: c"
+                      for="optionC">
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      id="optionD"
+                      type="radio"
+                      name="answertxt"
+                      value="d"
+                      data-bind="checkedValue: $data.d, checked: $root.selectedValue">
+                    <label
+                      class="form-check-label"
+                      data-bind="text: d"
+                      for="optionD">
+                    </label>
+                  </div>
+              </div>
+            </div>
           </div>
           <br>
           <br>
           <br>
-          <button id="previous">Previous Question</button>
-          <button id="next">Next Question</button>
+          <!-- BUTTONS -->
+          <button id="previous" data-bind="click: previousButton">Previous Question</button>
+          <button id="next" data-bind="click: nextButton">Next Question</button>
           <button id="submit" data-toggle="modal" data-target="#SubmitBtn">Submit</button>
 
           <!-- Modal -->
@@ -94,20 +161,18 @@
                 <div class="modal-body">
                   <h4 data-bind="text: score"></h4>
                   <br>
-                  <div id="results"></div>
+                  <div id="results" data-bind="showResults"></div>
                   <br>
 
                   <h4 data-bind="text: rank"></h4>
                   <br>
-                  <div id="status"></div>
+                  <div id="status" data-bind="showResults"></div>
                   <br>
                   <button type="submit" data-bind="click: add"  onClick="refreshPage()">Start Over</button>
                 </div>
               </div>
               </div>
               </div>
-
-
 
           <!-- JavaScript External File -->
           <script src="./scripts/quiz.js"></script>
