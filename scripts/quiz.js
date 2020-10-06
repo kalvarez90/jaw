@@ -73,7 +73,7 @@ const myQuestions = [{
     c: 'var array = ‘array’;',
     d: 'var array = ["Apple", "Banana", "Strawberries"];'
   }],
-  correctAnswer: "var array = [Apple, Banana, Strawberries];",
+  correctAnswer: 'var array = ["Apple", "Banana", "Strawberries"];',
 },
 {
   id: 8,
