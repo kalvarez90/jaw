@@ -83,7 +83,12 @@ margin-top: 40px;
 }
 
 h2 {
-  font-size: 3.2em;
+  font-size: 2em;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 1em;
   font-weight: 400;
 }
 
