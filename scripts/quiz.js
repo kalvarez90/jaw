@@ -167,10 +167,6 @@ self.nextButton = function() {
     $("#next").hide();
     $("#submit").show();
   }
-  // if (self.selectedValue === undefined) {
-  //   alert("Must answer question to continue");
-  //   self.currentSlide(current);
-  // }
 
   //counter for right answers
   let numCorrect = self.count() + 1;
@@ -184,18 +180,14 @@ self.nextButton = function() {
   console.log("selectedValue: " + self.selectedValue);
   console.log("right answer: " + self.questions()[current - 1].correctAnswer);
   console.log("current slide#: " + current);
-  // console.log(myQuestions.length)
 };
 
 //USERS SELECTED.
 self.userSelected = function() {
-  //console.log();
 };
 
 //USERS STORE
 self.storeAnswer = function() {
-  // var current = self.currentSlide();
-  // self.questions(myQuestions);
 };
 
 //SHOW RESULTS
@@ -206,11 +198,11 @@ self.showResults = function() {
 
   let ranking = self.ranking("");
   let count = self.count()
-  console.log("show result :" + count)
-  if (count <= 5) {
+  console.log("show result :" + count*100)
+  if (count <= 50) {
     let ranking = self.ranking("Beginner");
     console.log(ranking);
-  } else if (count <= 8 && count > 5) {
+  } else if (count <= 80 && count > 50) {
     let ranking = self.ranking("Novice");
     console.log(ranking);
   } else {
