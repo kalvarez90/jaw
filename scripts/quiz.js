@@ -71,7 +71,7 @@ const myQuestions = [{
     a: 'function array() { console.log(array)};',
     b: 'var array = {Apple};',
     c: 'var array = ‘array’;',
-    d: 'var array = [Apple, Banana, Strawberries];'
+    d: 'var array = ["Apple", "Banana", "Strawberries"];'
   }],
   correctAnswer: "var array = [Apple, Banana, Strawberries];",
 },
@@ -122,6 +122,7 @@ self.rank = ko.observable('Ranking');
 self.ranking = ko.observable();
 self.result = ko.observable('Results');
 self.currentSlide = ko.observable(0);
+self.percentage = ko.observable();
 // self.selectedValue = ko.observable();
 self.questions = ko.observableArray(myQuestions);
 $("#previous").hide();
@@ -143,14 +144,17 @@ self.currentQuestion = function() {
 //PREVIOUS BUTTON
 self.previousButton = function() {
   let current = self.currentSlide();
+  let count = self.count();
   if (current === 0) {
     $("#previous").hide();
   }
   if (!current <= 0) {
     current--;
     self.currentSlide(current);
+    //console.log(current)
+    //counter for going back
   }
-  //counter for going back
+
 }
 
 //NEXT BUTTON
@@ -167,11 +171,6 @@ self.nextButton = function() {
     $("#next").hide();
     $("#submit").show();
   }
-  // if (self.selectedValue === undefined) {
-  //   alert("Must answer question to continue");
-  //   self.currentSlide(current);
-  // }
-
   //counter for right answers
   let numCorrect = self.count() + 1;
   if (self.selectedValue === self.questions()[current - 1].correctAnswer) {
@@ -205,7 +204,8 @@ self.showResults = function() {
   $("#submit").hide();
 
   let ranking = self.ranking("");
-  let count = self.count()
+  let count = self.count();
+
   console.log("show result :" + count)
   if (count <= 5) {
     let ranking = self.ranking("Beginner");
@@ -218,5 +218,11 @@ self.showResults = function() {
     console.log(ranking);
   }
 };
+
+self.returnPercentage = function(){
+  let percentage = self.count();
+  return percentage * 10
+  console.log("percentage: " + percentage);
+}
 }
 ko.applyBindings(new QuizViewModel());
