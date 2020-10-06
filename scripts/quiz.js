@@ -11,7 +11,6 @@
         }
       ],
       correctAnswer: "A program language",
-      answerSelected: false
     },
     {
       id: 2,
@@ -25,7 +24,6 @@
         }
       ],
       correctAnswer: "< script >",
-      answerSelected: false
     },
       {
       id: 3,
@@ -39,7 +37,6 @@
         }
       ],
       correctAnswer: "fullName()",
-      answerSelected: false
     },
     {
       id: 4,
@@ -81,7 +78,6 @@
         }
       ],
       correctAnswer: "/* This comment has more than one line */",
-      answerSelected: false
     },
     {
       id: 7,
@@ -95,7 +91,6 @@
         }
       ],
       correctAnswer: "False",
-      answerSelected: false
     },
     {
       id: 8,
@@ -109,7 +104,6 @@
         }
       ],
       correctAnswer: "Yes",
-      answerSelected: false
     },
     {
       id: 9,
@@ -123,11 +117,10 @@
         }
       ],
       correctAnswer: "function myFunction() {...}",
-      answerSelected: false
     },
     {
       id: 10,
-      question: "Please add another qurestion",
+      question: "Please add another question",
       answers: [
         {
           a: "10",
@@ -137,7 +130,6 @@
         }
       ],
       correctAnswer: "10",
-      answerSelected: false
     }
     ];
 
@@ -147,18 +139,22 @@
     self.count = ko.observable(0);
     self.header = ko.observable('Javascript Quiz');
     self.score  = ko.observable('Score');
-    self.rank  = ko.observable('Knowledge Rank');
+    self.rank  = ko.observable('Rankings');
+    self.ranking  = ko.observable();
     self.result  = ko.observable('Results');
     self.currentSlide = ko.observable(0);
     // self.selectedValue = ko.observable();
     self.questions = ko.observableArray(myQuestions);
     $("#previous").hide();
     $("#submit").hide();
+    $("#results").hide();
+    $("#quiz").show();
 
+    //REFRESH PAGE
     self.add = function refreshPage(){
       window.location.reload();
     } ;
-    //DISPLAY CURRENT QUESTION AND ANSWERSs
+    //DISPLAY CURRENT QUESTION AND ANSWERS
     self.currentQuestion = function() {
       let current = self.currentSlide();
       return self.questions()[current]
@@ -190,7 +186,7 @@
         $("#submit").show();
       }
       // if (self.selectedValue === undefined) {
-      //   alert("please answer question");
+      //   alert("Must answer question to continue");
       //   self.currentSlide(current);
       // }
 
@@ -198,16 +194,14 @@
       let numCorrect = self.count()+ 1;
         if (self.selectedValue === self.questions()[current-1].correctAnswer) {
           self.count(numCorrect)
-          console.log("right answer " + numCorrect);
+          console.log("correct #: " + numCorrect);
         } else {
           console.log("wrong answer");
         }
-
-
       console.log("selectedValue: " + self.selectedValue);
       console.log("right answer: " + self.questions()[current-1].correctAnswer);
-      // console.log(current-1);
-      //console.log(myQuestions.length)
+      console.log("current slide#: " + current);
+      // console.log(myQuestions.length)
     };
     //USERS SELECTED.
     self.userSelected = function() {
@@ -220,7 +214,23 @@
     };
     //SHOW RESULTS
     self.showResults = function(){
-      console.log('Submitted!');
+      $("#results").show();
+      $("#quiz").hide();
+      $("#submit").hide();
+
+      let ranking = self.ranking("");
+      let count = self.count()
+      console.log("show result :" + count)
+      if (count <= 5 ){
+        let ranking = self.ranking("Beginner");
+        console.log(ranking);
+      } else if (count <= 8 && count > 5) {
+        let ranking = self.ranking("Novice");
+        console.log(ranking);
+      } else {
+        let ranking = self.ranking("Expert");
+        console.log(ranking);
+      }
     };
   }
   ko.applyBindings(new QuizViewModel());

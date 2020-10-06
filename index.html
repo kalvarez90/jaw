@@ -67,11 +67,9 @@
 
         <div id="wrapper">
           <h1 data-bind="text: header"></h1>
-
-          <h3>Question <span data-bind="html: currentQuestion().id"></span>/10</h3>
-
           <div class="quiz-container">
             <div id="quiz">
+          <h3>Question <span data-bind="html: currentQuestion().id"></span>/10</h3>
               <!-- display questions -->
               <h2 data-bind="html: currentQuestion().question"></h2>
               <br/>
@@ -135,44 +133,24 @@
                   </div>
               </div>
             </div>
+            <div id="results">
+              <!-- SCORE -->
+              <h4 data-bind="text: score"></h4>
+              <p><span id="results" data-bind="text: count"></span> out of 10 correct.</p>
+              <!-- RANKING -->
+              <h4 data-bind="text: rank"></h4>
+              <div id="status" data-bind="text: ranking"></div>
+              <button type="submit" data-bind="click: add"  onClick="refreshPage()">Start Over</button>
+            </div>
           </div>
           <br>
           <br>
           <br>
           <!-- BUTTONS -->
+          <br><br>
           <button id="previous" data-bind="click: previousButton">Previous Question</button>
           <button id="next" data-bind="click: nextButton">Next Question</button>
-          <button id="submit" data-toggle="modal" data-target="#SubmitBtn">Submit</button>
-
-          <!-- Modal -->
-
-
-          <div class="modal fade" id="SubmitBtn" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h2 data-bind="text: result"></h2>
-                  <button type="button" class="close" data-dismiss="modal">×</button>
-                </div>
-                <br>
-
-                <div class="modal-body">
-                  <h4 data-bind="text: score"></h4>
-                  <br>
-                  <div id="results" data-bind="showResults"></div>
-                  <br>
-
-                  <h4 data-bind="text: rank"></h4>
-                  <br>
-                  <div id="status" data-bind="showResults"></div>
-                  <br>
-                  <button type="submit" data-bind="click: add"  onClick="refreshPage()">Start Over</button>
-                </div>
-              </div>
-              </div>
-              </div>
+          <button id="submit" data-target="#SubmitBtn" data-bind="click: showResults">Submit</button>
 
           <!-- JavaScript External File -->
           <script src="./scripts/quiz.js"></script>
