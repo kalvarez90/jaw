@@ -235,3 +235,4 @@
   }
   ko.applyBindings(new QuizViewModel());
 
+

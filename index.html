@@ -66,12 +66,10 @@
 </nav>
 
         <div id="wrapper">
+          <h1 data-bind="text: header"></h1>
           <div class="quiz-container">
-            <h1 data-bind="text: header"></h1>
             <div id="quiz">
           <h3>Question <span data-bind="html: currentQuestion().id"></span>/10</h3>
-
-
               <!-- display questions -->
               <h2 data-bind="html: currentQuestion().question"></h2>
               <br/>
