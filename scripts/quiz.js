@@ -128,6 +128,7 @@ self.questions = ko.observableArray(myQuestions);
 $("#previous").hide();
 $("#submit").hide();
 $("#results").hide();
+$("#summary").hide();
 $("#quiz").show();
 
 //REFRESH PAGE
@@ -202,7 +203,6 @@ self.showResults = function() {
   $("#results").show();
   $("#quiz").hide();
   $("#submit").hide();
-
   let ranking = self.ranking("");
   let count = self.count();
 
@@ -223,6 +223,14 @@ self.returnPercentage = function(){
   let percentage = self.count();
   return percentage * 10
   console.log("percentage: " + percentage);
+};
+
+self.showSummary = function() {
+  $("#summary").show();
+  $("#results").hide();
+  $("#quiz").hide();
+  $("#startover").show();
 }
+
 }
 ko.applyBindings(new QuizViewModel());
