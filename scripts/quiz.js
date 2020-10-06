@@ -1,251 +1,231 @@
-(function(){
-  // Functions
-  function buildQuiz(){
-    // variable to store the HTML output
-    const output = [];
-
-    // for each question...
-    myQuestions.forEach(
-      (currentQuestion, questionNumber) => {
-
-        // variable to store the list of possible answers
-        const answers = [];
-
-        // and for each available answer...
-        for(letter in currentQuestion.answers){
-
-          // ...add an HTML radio button
-          answers.push(
-            `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
-              ${letter} :
-              ${currentQuestion.answers[letter]}
-            </label>`
-          );
-        }
-
-        // add this question and its answers to the output
-        output.push(
-          `<div class="slide">
-            <div class="question"> ${currentQuestion.question} </div>
-            <div class="answers"> ${answers.join("")} </div>
-          </div>`
-        );
-      }
-    );
-
-    // finally combine our output list into one string of HTML and put it on the page
-    quizContainer.innerHTML = output.join('');
-  }
-
-  function showResults(){
-
-    // gather answer containers from our quiz
-    const answerContainers = quizContainer.querySelectorAll('.answers');
-
-    // keep track of user's answers
-    let numCorrect = 0;
-
-    // for each question...
-    myQuestions.forEach( (currentQuestion, questionNumber) => {
-
-      // find selected answer
-      const answerContainer = answerContainers[questionNumber];
-      const selector = `input[name=question${questionNumber}]:checked`;
-      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-      // if answer is correct
-      if(userAnswer === currentQuestion.correctAnswer){
-        // add to the number of correct answers
-        numCorrect++;
-
-        // color the answers green
-        answerContainers[questionNumber].style.color = 'green';
-      }
-      // if answer is wrong or blank
-      else{
-        // color the answers red
-        answerContainers[questionNumber].style.color = 'red';
-      }
-    });
-
-    // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-    if (numCorrect <= 5){
-      return document.getElementById('status').innerHTML="Beginner";
-    }
-
-    else if (numCorrect <=  8){
-      return document.getElementById('status').innerHTML="Novice";
-    }
-
-    else if (numCorrect <=  10){
-      return document.getElementById('status').innerHTML="JavaScript Expert";
-    }
-
-  };
-
-  function showSlide(n) {
-    slides[currentSlide].classList.remove('active-slide');
-    slides[n].classList.add('active-slide');
-    currentSlide = n;
-    if(currentSlide === 0){
-      previousButton.style.display = 'none';
-    }
-    else{
-      previousButton.style.display = 'inline-block';
-    }
-    if(currentSlide === slides.length-1){
-      nextButton.style.display = 'none';
-      submitButton.style.display = 'inline-block';
-    }
-    else{
-      nextButton.style.display = 'inline-block';
-      submitButton.style.display = 'none';
-    }
-  }
-
-  function showNextSlide() {
-    showSlide(currentSlide + 1);
-  }
-
-  function showPreviousSlide() {
-    showSlide(currentSlide - 1);
-  }
-
-  // Variables
-  const quizContainer = document.getElementById('quiz');
-  const resultsContainer = document.getElementById('results');
-  const submitButton = document.getElementById('submit');
-  const myQuestions = [
-    {
-      question: "What is Javascript?",
-      answers : {
-         a: "A framework",
-         b: "A program language",
-         c: "A web browser",
-         d: "A type of function"
-        },
-        correctAnswer: "b"
-      },
+const myQuestions = [
+  {
+    id: 1,
+    question: "What is Javascript?",
+    answers : [
       {
-        question: "Inside which HTML element do we put the JavaScript?",
-        answers : {
-           a: "< javascript >",
-           b: "< js >",
-           c: "< script >",
-           d: "< Jscript >"
-          },
-          correctAnswer: "c"
-        },
-        {
-          question: "How do you call a function named 'fullName'?",
-          answers : {
-            a: "call fullName",
-            b: "fullName()",
-            c: "call function fullName"
-          },
-             correctAnswer: "b"
-            },
-            {
-            question: "How does a for loop start?",
-            answers : {
-               a: "for(x = 0; x < 5; x++)",
-               b: "for(x <= 5; x++)",
-               c: "for(x = 0; x <= 5)"
-              },
-              correctAnswer: "a"
-            },
-            {
-              question: "How do you add a comment in JavaScript?",
-              answers : {
-                 a: "< !--This is a comment -- >",
-                 b: "'This is a comment'",
-                 c: "//This is a comment"
-                },
-                correctAnswer: "c"
-              },
-              {
-                question: "How to insert a comment that has more than one line?",
-                answers : {
-                   a: "< !—This comment has more than one line -- >",
-                   b: "// This comment has more than one line //",
-                   c: "/* This comment has more than one line */"
-                  },
-                  correctAnswer: "c"
-                },
-                {
-                  question: "JavaScript is the same as Java?",
-                  answers : {
-                     a: "True",
-                     b: "False",
-                    },
-                    correctAnswer: "b"
-                  },
-                  {
-                    question: "Is JavaScript case-sensitive?",
-                    answers : {
-                       a: "Yes",
-                       b: "No",
-                      },
-                      correctAnswer: "a"
-                    },
-                    {
-                      question: "How do you create a function in JavaScript",
-                      answers : {
-                         a: "function = myFunction() {...}",
-                         b: "function: myFunction() {...}",
-                         c: "function myFunction() {...}"
-                        },
-                        correctAnswer: "c"
-                      },
-                      {
-                        question: `What will be the output of this code?
-                        var x = 10 ;
-                        if ( x > 5 ) {
-                          let x = 1;
-                        } else {
-                          let x = 0
-                        }
-                        print (x)
-                        `,
-                        answers: {
-                          a: "10",
-                          b: "1",
-                          c: "0"
-                        },
-                        correctAnswer: "a"
-                      }
+        a: "A framework",
+        b: "A program language",
+        c: "A web browser",
+        d: "A type of function"
+      }
+    ],
+    correctAnswer: "A program language",
+    answerSelected: false
+  },
+  {
+    id: 2,
+    question: "Inside which HTML element do we put the JavaScript?",
+    answers : [
+      {
+        a: "<javascript>",
+        b: "<js>",
+        c: "<script>",
+        d: "<Jscript>"
+      }
+    ],
+    correctAnswer: "< script >",
+    answerSelected: false
+  },
+    {
+    id: 3,
+    question: "How do you call a function named 'fullName'?",
+    answers : [
+      {
+        a: "call fullName",
+        b: "fullName()",
+        c: "call function fullName",
+        d: "FULLNAME()"
+      }
+    ],
+    correctAnswer: "fullName()",
+    answerSelected: false
+  },
+  {
+    id: 4,
+    question: "How does a for loop start?",
+    answers : [
+      {
+        a: "for(x = 0; x < 5; x++)",
+        b: "for(x <= 5; x++)",
+        c: "for(x = 0; x <= 5)",
+        d: "4(i in loop)"
+      }
+    ],
+    correctAnswer: "for(x = 0; x < 5; x++)",
+    answerSelected: false
+  },
+  {
+    id: 5,
+    question: "How do you add a comment in JavaScript?",
+    answers : [
+      {
+        a: "< !--This is a comment -- >",
+        b: "'This is a comment'",
+        c: "//This is a comment",
+        d: "All the above."
+      }
+    ],
+    correctAnswer: "//This is a comment",
+    answerSelected: false
+  },
+  {
+    id:6,
+    question: "How to insert a comment that has more than one line?",
+    answers : [
+      {
+        a: "< !—This comment has more than one line -- >",
+        b: "// This comment has more than one line //",
+        c: "/* This comment has more than one line */",
+        d: "** This comment has more than one line **"
+      }
+    ],
+    correctAnswer: "/* This comment has more than one line */",
+    answerSelected: false
+  },
+  {
+    id: 7,
+    question: "Which of the following is an example of an array",
+    answers : [
+      {
+        a: 'function array() { console.log(array)};',
+        b: 'var array = {Apple};',
+        c: 'var array = ‘array’;',
+        d: 'var array = [Apple, Banana, Strawberries];'
+      }
+    ],
+    correctAnswer: "var array = [Apple, Banana, Strawberries];",
+    answerSelected: false
+  },
+  {
+    id: 8,
+    question: "How do you write 'You Did It!' in an alert box",
+    answers : [
+      {
+        a: 'alert("You Did It!");',
+        b: 'alertBox("You Did It!");',
+        c: 'myAlert("You Did It!");',
+        d: 'myalertBox("You Did It!");'
+      },
+    ],
+      correctAnswer: 'alert("You Did It!");'
+    },
+  {
+    id: 9,
+    question: "How do you create a function in JavaScript",
+    answers : [
+      {
+        a: "function = myFunction() {...}",
+        b: "function: myFunction() {...}",
+        c: "function myFunction() {...}",
+        d: "myFunction{}"
+      }
+    ],
+    correctAnswer: "function myFunction() {...}",
+    answerSelected: false
+  },
+  {
+    id: 10,
+    question: "Which event occurs when the user click on an HTML element?",
+    answers: [
+      {
+        a: "onmouseover",
+        b: "onchange",
+        c: "onmouseclick",
+        d: "onclick"
+      }
+    ],
+    correctAnswer: "onclick",
+    answerSelected: false
+  }
   ];
 
-  // Builds the Quiz
-  buildQuiz();
-
-  // Pagination
-  const previousButton = document.getElementById("previous");
-  const nextButton = document.getElementById("next");
-  const slides = document.querySelectorAll(".slide");
-  let currentSlide = 0;
-
-  // Show the first slide
-  showSlide(currentSlide);
-
-  // Event listeners
-  submitButton.addEventListener('click', showResults);
-  previousButton.addEventListener("click", showPreviousSlide);
-  nextButton.addEventListener("click", showNextSlide);
-})();
-
-// refresh Quiz page
 // Post data binds
 function QuizViewModel(){
-  this.header = ko.observableArray(["Javascript Quiz"]);
-  this.score  = ko.observableArray(["Score"]);
-  this.rank  = ko.observableArray(["Knowledge Rank"]);
-  this.result  = ko.observableArray(["Results"]);
-  this.add = function refreshPage(){
+  var self = this;
+  self.count = ko.observable(0);
+  self.header = ko.observable('Javascript Quiz');
+  self.score  = ko.observable('Score');
+  self.rank  = ko.observable('Knowledge Rank');
+  self.result  = ko.observable('Results');
+  self.currentSlide = ko.observable(0);
+  self.final = ko.observable(false)
+  self.quiz = ko.observable(true)
+  // self.selectedValue = ko.observable();
+  self.questions = ko.observableArray(myQuestions);
+  $("#previous").hide();
+  $("#submit").hide();
+
+  self.add = function refreshPage(){
     window.location.reload();
   } ;
-}
-ko.applyBindings(new QuizViewModel());
 
+  //DISPLAY CURRENT QUESTION AND ANSWERS
+  self.currentQuestion = function() {
+    let current = self.currentSlide();
+    return self.questions()[current]
+  };
+
+  //PREVIOUS BUTTON
+  self.previousButton = function(){
+    let current = self.currentSlide();
+    if (current === 0) {
+      $("#previous").hide();
+    }
+    if (!current <= 0) {
+      current--;
+      self.currentSlide(current);
+    }
+    //counter for going back
+  }
+
+  //NEXT BUTTON
+  self.nextButton = function(){
+    $("#previous").show();
+    let current = self.currentSlide();
+    let count = self.count();
+    if (current >= 0) {
+      current ++;
+      self.currentSlide(current);
+    }
+    if (current >= 9) {
+      $("#previous").hide();
+      $("#next").hide();
+      $("#submit").show();
+    }
+    // if (self.selectedValue === undefined) {
+    //   alert("please answer question");
+    //   self.currentSlide(current);
+    // }
+
+    //counter for right answers
+    let numCorrect = self.count()+ 1;
+      if (self.selectedValue === self.questions()[current-1].correctAnswer) {
+        self.count(numCorrect)
+        console.log("right answer " + numCorrect);
+      } else {
+        console.log("wrong answer");
+      }
+
+
+    console.log("selectedValue: " + self.selectedValue);
+    console.log("right answer: " + self.questions()[current-1].correctAnswer);
+    // console.log(current-1);
+    //console.log(myQuestions.length)
+  };
+  //USERS SELECTED.
+  self.userSelected = function() {
+    //console.log();
+  };
+  //USERS STORE
+  self.storeAnswer = function() {
+    // var current = self.currentSlide();
+    // self.questions(myQuestions);
+  };
+  //SHOW RESULTS
+  self.showResults = function(){
+    console.log('Submitted!');
+  };
+}
+
+ko.applyBindings(new QuizViewModel());
