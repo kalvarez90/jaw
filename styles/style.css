@@ -10,12 +10,18 @@ body {
   background-color: #e7dfd5;
   border: 2px solid #204051;
   border-radius: 30px;
-  margin: 100px auto;
+  margin: 0 auto;
   max-width: 80%;
+  height: auto;
   padding: 50px;
   text-align: center;
 }
-
+#summary li {
+  list-style: none;
+}
+.correct {
+  color: purple;
+}
 h1 {
 font-weight: 500;
 font-size: 3.5em;
@@ -68,7 +74,7 @@ z-index: 2;
 }
 .quiz-container{
 position: relative;
-height: 200px;
+height: auto;
 margin-top: 40px;
 }
 

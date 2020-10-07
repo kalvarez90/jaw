@@ -58,8 +58,9 @@
         </ul>
       </div>
     </nav>
-
+    <br>
     <div id="wrapper">
+      <div id="inside">
       <h1 data-bind="text: header"></h1>
       <div class="quiz-container">
         <div id="quiz">
@@ -104,16 +105,32 @@
           <h4 data-bind="text: rank"></h4>
           <div id="status" data-bind="text: ranking"></div>
           <br>
-          <br>
-          <button type="submit" data-bind="click: add" onClick="refreshPage()">Start Over</button>
-        </div>
-      </div>
 
+          <button type="submit" data-bind="click: add" onClick="refreshPage()">Start Over</button>
+          <button type="submit" data-bind="click: showSummary">Summary</button>
+        </div>
+        <!-- SUMMARY -->
+        <div id="summary">
+          <div data-bind="foreach: questions">
+            <h5 data-bind="text: question"></h5>
+            <ul data-bind="foreach: answers">
+              <li data-bind="text: $data.a"></li>
+              <li data-bind="text: $data.b"></li>
+              <li data-bind="text: $data.c"></li>
+              <li data-bind="text: $data.d"></li>
+            </ul>
+            <p class="correct">Correct Answer: <span data-bind="text: correctAnswer"></span></p>
+          </div>
+          <button type="submit" data-bind="click: add" onClick="refreshPage()">Start Over</button>
+
+        </div>
+
+      </div>
       <br>
       <br>
 
       <!-- BUTTONS -->
-      <br><br>
+
       <button id="previous" data-bind="click: previousButton">Previous Question</button>
       <button id="next" data-bind="click: nextButton">Next Question</button>
       <button id="submit" data-target="#SubmitBtn" data-bind="click: showResults">Submit</button>
@@ -121,15 +138,14 @@
       <!-- JavaScript External File -->
       <script src="./scripts/quiz.js"></script>
     </div>
+    </div>
 
-    <br />
-    <br />
-    <br />
+    <br><br><br>
     <!-- Start of Footer-->
-    <div class="container-fluid" id="copyright">
+    <footer class="container-fluid" id="copyright">
       <p>© 2020 Copyright <br>
         Karina Alvarez, Devan Wong, Douglas Jenkins</p>
-    </div>
+    </footer>
     <!-- End of footer -->
 
   </body>
